@@ -1,0 +1,14 @@
+id: T-0001
+title: Sugerir min-max por rotación y lead time
+owner: Coordinator-GPT
+inputs:
+  context_refs:
+    - docs/agents/policies/mci.md
+    - docs/agents/policies/odoo_whitelist.md
+constraints:
+  - no_writes_db
+  - no_credentials_changes
+deliverables:
+  - handoff_md: true
+  - patch: optional
+status: open
