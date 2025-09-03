@@ -1,14 +1,35 @@
 id: T-0001
-title: Sugerir min-max por rotación y lead time
+title: Min–Max de inventario en Odoo (90d, lead time, nivel servicio)
 owner: Coordinator-GPT
+domain: inventory
+scope: odoo_stock
+non_goals:
+  - no validación de formularios ni UI
+  - no escritura en DB
 inputs:
   context_refs:
-    - docs/agents/policies/mci.md
-    - docs/agents/policies/odoo_whitelist.md
+    - agents/policies/mci.md
+    - agents/policies/odoo_whitelist.md
+  data_sources:
+    - stock.move (salidas a cliente, state=done, últimos 90 días)
+    - stock.picking (picking_type.code='outgoing')
+    - product.product / product.template
+    - product.supplierinfo (delay = lead_time_días)
+parameters:
+  horizon_days: 90
+  service_level_Z: 1.65
+  review_days: 7
 constraints:
-  - no_writes_db
-  - no_credentials_changes
+  - solo lectura SQL
+  - sin credenciales ni conf
 deliverables:
   - handoff_md: true
-  - patch: optional
-status: open
+  - tabla: sku_id, demanda_90d, demanda_diaria, sigma_diaria, lead_time_d, safety_stock, min, max
+  - fórmulas y supuestos
+acceptance:
+  - Dd = demanda_90d/90
+  - sigma_diaria = STDDEV_POP(demanda_diaria)
+  - SS = Z * sigma_diaria * SQRT(lead_time_d)
+  - min = SS
+  - max = min + Dd * (lead_time_d + review_days)
+next_actor_expected: DB-GPT
