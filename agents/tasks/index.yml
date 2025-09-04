@@ -1,0 +1,11 @@
+tasks:
+  - id: T-0001
+    title: Min–Max 90d
+    owner: Rafael Dudamel
+    phase: F1
+    status: open
+  - id: T-0002
+    title: Smoke 7d (3 SKUs)
+    owner: Rafael Dudamel
+    phase: F1
+    status: open
