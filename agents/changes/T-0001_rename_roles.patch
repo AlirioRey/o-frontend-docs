@@ -1,0 +1,13 @@
+diff --git a/agents/tasks/T-0001-minmax.yml b/agents/tasks/T-0001-minmax.yml
+--- a/agents/tasks/T-0001-minmax.yml
++++ b/agents/tasks/T-0001-minmax.yml
+@@
+-id: T-0001
+-title: Min–Max de inventario en Odoo (90d, lead time, nivel servicio)
+-owner: Coordinator-GPT
++id: T-0001
++title: Min–Max de inventario en Odoo (90d, lead time, nivel servicio)
++owner: Rafael Dudamel
+@@
+-next_actor_expected: DB-GPT
++next_actor_expected: Winston Churchill
