@@ -1,0 +1,19 @@
+id: T-0002
+title: Smoke test cadena completa (min-max 3 SKUs)
+owner: Rafael Dudamel
+inputs:
+  context_refs:
+    - agents/policies/mci.md
+    - agents/policies/odoo_whitelist.md
+parameters:
+  horizon_days: 7
+  service_level_Z: 1.65
+  review_days: 3
+constraints:
+  - solo lectura
+  - sin UI ni writes
+deliverables:
+  - handoff_md: true
+  - tabla: sku_id, demanda_7d, demanda_diaria, sigma_diaria, lead_time_d, SS, min, max
+next_actor_expected: Winston Churchill
+status: open
