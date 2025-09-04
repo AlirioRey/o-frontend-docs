@@ -1,6 +1,6 @@
 id: T-0001
 title: Min–Max de inventario en Odoo (90d, lead time, nivel servicio)
-owner: Coordinator-GPT
+owner: Rafael Dudamel
 domain: inventory
 scope: odoo_stock
 non_goals:
@@ -32,4 +32,4 @@ acceptance:
   - SS = Z * sigma_diaria * SQRT(lead_time_d)
   - min = SS
   - max = min + Dd * (lead_time_d + review_days)
-next_actor_expected: DB-GPT
+next_actor_expected: Winston Churchill
